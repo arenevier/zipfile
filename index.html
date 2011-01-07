@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html><head>
+
+<title>ZipFile demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/vbscript">
+     Function BinaryToArray(Binary)
+         Dim i
+         ReDim byteArray(LenB(Binary))
+         For i = 1 To LenB(Binary)
+             byteArray(i-1) = AscB(MidB(Binary, i, 1))
+         Next
+         BinaryToArray = byteArray
+     End Function
+</script>
+
+<script src="external/jquery.js" type="text/javascript"></script>
+<script src="external/deflate.js" type="text/javascript"></script>
+<script src="external/collapser.js" type="text/javascript"></script>
+<script src="zipfile.js" type="text/javascript"></script>
+<script src="demo.js" type="text/javascript"></script>
+
+<style type="text/css" charset="utf-8">
+h1 {
+    text-align: center;
+}
+#fname {
+    font-size: 110%;
+    color: maroon ;
+}
+#message {
+    display: none;
+    text-align: center;
+    border: 1px solid black;
+    padding: 30px 0 30px 0;
+    margin-top: 50px;
+    width: 50%;
+    margin-left: 25%;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.prop {
+    color: #A9A9A9;
+    font-weight: bold;
+}
+.filecontent {
+    border: 1px dashed black;
+    padding: 8px;
+}
+.fileinfos {
+    margin: 0 0 10px 12px;
+}
+.error {
+    color: red;
+    font-weight: bold;
+}
+.header {
+    text-align: center;
+    font-weight: bold;
+    margin: 30px 0 50px 25%;
+    width: 50%;
+    border: 1px solid gray;
+    padding: 14px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+    </style>
+
+    </head>
+
+    <body>
+
+    <p class="header">This is a demo for ZipFile Javascript library. Files are extracted from
+    ZipFile archive itself and are displayed in this document.</p>
+
+    <h1>Infos for <span id="fname">&hellip;</span> zip file</h1>
+    <div id="comment"><span class="prop">global comment</span>
+        <pre id="gcommentcontent"></pre>
+    </div>
+    <ol id="main"></ol>
+    <div id="message"></div>
+    </body>
+
+
+
+</html>
